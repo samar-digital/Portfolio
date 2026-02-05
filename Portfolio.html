@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arish | Digital Strategy & Consulting</title>
+
+<style>
+:root{
+  --bg:#0f172a;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --card:#020617;
+  --accent:#38bdf8;
+}
+.light{
+  --bg:#f8fafc;
+  --text:#020617;
+  --card:#ffffff;
+  --muted:#475569;
+}
+
+body{
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+header{
+  padding:80px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#020617,#1e293b);
+}
+
+h1{margin-bottom:10px;}
+p{color:var(--muted);}
+
+button{
+  padding:10px 18px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  background:var(--accent);
+  color:#020617;
+  font-weight:600;
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h2{
+  border-left:4px solid var(--accent);
+  padding-left:12px;
+  margin-bottom:25px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:14px;
+}
+
+.card img{
+  width:100%;
+  border-radius:10px;
+}
+
+ul{
+  padding-left:18px;
+}
+
+input, textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  margin-bottom:12px;
+}
+
+footer{
+  text-align:center;
+  padding:35px;
+  background:#020617;
+  color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header>
+  <h1>Arish (Mehraj Ahmad Itoo)</h1>
+  <p>Digital Strategy • Psychology • Skill Consulting</p>
+  <p>Helping individuals & small brands build clarity, skills, and direction.</p>
+  <br>
+  <button onclick="toggleMode()">🌙 Toggle Mode</button>
+</header>
+
+<!-- ABOUT -->
+<section>
+<h2>About</h2>
+<p>
+I work at the intersection of <strong>psychology, digital skills, and strategy</strong>.
+Instead of selling hype, I focus on clarity, execution, and long-term thinking.
+If you’re serious about growth — not shortcuts — we’ll get along.
+</p>
+</section>
+
+<!-- SKILLS -->
+<section>
+<h2>Core Capabilities</h2>
+<div class="grid">
+  <div class="card">
+    <strong>Digital & Tech</strong>
+    <ul>
+      <li>HTML & Web Foundations</li>
+      <li>OSINT & Cyber Awareness</li>
+      <li>AI Tools for Productivity</li>
+    </ul>
+  </div>
+  <div class="card">
+    <strong>Creative & Strategy</strong>
+    <ul>
+      <li>Canva Product Design</li>
+      <li>Content & Funnel Thinking</li>
+      <li>Affiliate & WhatsApp Marketing</li>
+    </ul>
+  </div>
+  <div class="card">
+    <strong>Psychology</strong>
+    <ul>
+      <li>Human Behavior & Deception</li>
+      <li>Critical Thinking</li>
+      <li>Decision-Making Strategy</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects & Initiatives</h2>
+<div class="grid">
+
+  <div class="card">
+    <img src="assets/project1.jpg">
+    <h3>Samar Digital Agency</h3>
+    <p>Digital planners, templates & skill-based products.</p>
+  </div>
+
+  <div class="card">
+    <img src="assets/project2.jpg">
+    <h3>CrimeMind Decoder</h3>
+    <p>Criminal psychology & behavior analysis content.</p>
+  </div>
+
+  <div class="card">
+    <img src="assets/whatsapp-consultancy-qr.jpg">
+    <h3>Arish’s Free Consultancy Programme</h3>
+    <p>
+      A free WhatsApp community where I guide people on skills,
+      mindset, and digital direction.
+    </p>
+    <ul>
+      <li>✔ Beginner-friendly</li>
+      <li>✔ No spam, only value</li>
+      <li>✔ Growth-focused discussions</li>
+    </ul>
+    <p><strong>Join by scanning the QR code.</strong></p>
+  </div>
+
+</div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section>
+<h2>Before You Contact Me (Requirements)</h2>
+<div class="card">
+<ul>
+  <li>✔ You are genuinely willing to learn & execute</li>
+  <li>✔ You respect time, honesty, and clarity</li>
+  <li>✔ You are not looking for shortcuts or overnight success</li>
+  <li>✔ You are open to feedback and improvement</li>
+</ul>
+<p>
+If this resonates with you, feel free to reach out.
+If not — no hard feelings, this space may not be for you.
+</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section>
+<h2>Contact</h2>
+<form id="contact-form">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+</section>
+
+<footer>
+<p>“Silence is not emptiness, it is full of answers.”</p>
+</footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+</script>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+ emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
+document.getElementById("contact-form").addEventListener("submit",function(e){
+ e.preventDefault();
+ emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
+ .then(()=>{alert("Message Sent");this.reset();})
+ .catch(()=>alert("Error sending message"));
+});
+</script>
+
+</body>
+</html>
+
