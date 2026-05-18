@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arish | Digital Strategy & Consulting</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0f172a;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --card:#111827;
+  --accent:#38bdf8;
+  --secondary:#7c3aed;
+  --border:rgba(255,255,255,0.08);
+}
+
+.light{
+  --bg:#f8fafc;
+  --text:#020617;
+  --muted:#475569;
+  --card:#ffffff;
+  --border:rgba(15,23,42,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.8;
+}
+
+header{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  background:
+  linear-gradient(rgba(2,6,23,0.75),rgba(15,23,42,0.9)),
+  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop') center/cover;
+}
+
+.hero-box{
+  max-width:850px;
+}
+
+.hero-badge{
+  display:inline-block;
+  padding:8px 18px;
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:999px;
+  margin-bottom:20px;
+  backdrop-filter:blur(10px);
+  font-size:14px;
+}
+
+h1{
+  font-size:clamp(2.8rem,7vw,5rem);
+  line-height:1.1;
+  margin-bottom:18px;
+}
+
+.hero-text{
+  max-width:700px;
+  margin:auto;
+  color:#cbd5e1;
+  font-size:1.1rem;
+}
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s ease;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:#020617;
+}
+
+.btn-secondary{
+  border:1px solid rgba(255,255,255,0.2);
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.toggle-btn{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:1000;
+  border:none;
+  background:var(--accent);
+  color:#020617;
+  padding:12px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+.section-title{
+  font-size:2rem;
+  margin-bottom:20px;
+  position:relative;
+  display:inline-block;
+}
+
+.section-title::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:70%;
+  height:4px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--accent),var(--secondary));
+}
+
+.section-desc{
+  max-width:750px;
+  color:var(--muted);
+  margin-bottom:40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:25px;
+  transition:0.35s ease;
+  overflow:hidden;
+  backdrop-filter:blur(10px);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+.card img,
+.card video{
+  width:100%;
+  border-radius:16px;
+  margin-bottom:18px;
+  object-fit:cover;
+  background:black;
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:1.2rem;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.skills-list li,
+ul li{
+  margin-bottom:10px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  margin-top:50px;
+}
+
+.stat-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.stat-box h3{
+  font-size:2rem;
+  color:var(--accent);
+}
+
+.contact-box{
+  background:linear-gradient(135deg,#0f172a,#111827);
+  padding:40px;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+input,
+textarea{
+  width:100%;
+  padding:15px;
+  margin-bottom:18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  color:var(--text);
+  font-family:inherit;
+}
+
+textarea{
+  min-height:160px;
+  resize:vertical;
+}
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+}
+
+@media(max-width:768px){
+
+.hero-buttons{
+  flex-direction:column;
+}
+
+.btn{
+  width:100%;
+}
+
+section{
+  padding:70px 20px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<button class="toggle-btn" onclick="toggleMode()">🌙 Mode</button>
+
+<!-- HERO -->
+<header>
+  <div class="hero-box">
+
+    <div class="hero-badge">
+      Digital Strategy • Psychology • Creative Consulting
+    </div>
+
+    <h1>Arish<br>Mehraj Ahmad Itoo</h1>
+
+    <p class="hero-text">
+      Building systems, ideas, digital strategies, and creative projects
+      focused on psychology, branding, skill development, and long-term growth.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Contact Me</a>
+    </div>
+
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section>
+
+<h2 class="section-title">About Me</h2>
+
+<p class="section-desc">
+I work at the intersection of digital systems, psychology, branding,
+research, and creative execution. My focus is not shortcuts or hype.
+I help individuals and small brands develop clarity, discipline,
+and strategic direction in the digital world.
+</p>
+
+<div class="stats">
+
+  <div class="stat-box">
+    <h3>10+</h3>
+    <p>Skill Domains</p>
+  </div>
+
+  <div class="stat-box">
+    <h3>Creative</h3>
+    <p>Digital Projects</p>
+  </div>
+
+  <div class="stat-box">
+    <h3>Research</h3>
+    <p>Psychology & Systems</p>
+  </div>
+
+  <div class="stat-box">
+    <h3>Growth</h3>
+    <p>Long-Term Thinking</p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+<section>
+
+<h2 class="section-title">Core Capabilities</h2>
+<p class="section-desc">
+A multidisciplinary blend of digital, psychological, analytical,
+and creative capabilities.
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Digital & Technology</h3>
+    <ul class="skills-list">
+      <li>HTML & Web Foundations</li>
+      <li>OSINT & Cyber Awareness</li>
+      <li>AI Tools & Productivity</li>
+      <li>Content Systems</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Creative Strategy</h3>
+    <ul class="skills-list">
+      <li>Visual Branding</li>
+      <li>Canva Product Design</li>
+      <li>Digital Marketing</li>
+      <li>Affiliate Strategy</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Psychology & Analysis</h3>
+    <ul class="skills-list">
+      <li>Human Behavior</li>
+      <li>Critical Thinking</li>
+      <li>Decision Systems</li>
+      <li>Behavior Observation</li>
+    </ul>
+  </div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+<h2 class="section-title">Projects & Initiatives</h2>
+<p class="section-desc">
+Selected projects, creative experiments, and digital initiatives.
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <img src="assets/project1.jpg" alt="Samar Digital Agency">
+    <h3>Samar Digital Agency</h3>
+    <p>
+      A developing digital initiative focused on skill-based products,
+      consulting, content systems, and creative strategy.
+    </p>
+  </div>
+
+  <div class="card">
+    <img src="assets/project2.jpg" alt="CrimeMind Decoder">
+    <h3>CrimeMind Decoder</h3>
+    <p>
+      Criminal psychology, human behavior, deception analysis,
+      and investigative thinking-based educational content.
+    </p>
+  </div>
+
+  <div class="card">
+    <img src="assets/whatsapp-consultancy-qr.jpg" alt="Consultancy QR">
+    <h3>Free Consultancy Programme</h3>
+    <p>
+      A WhatsApp-based growth community helping beginners with
+      digital skills, mindset, productivity, and direction.
+    </p>
+  </div>
+
+  <div class="card">
+
+    <video controls>
+      <source src="Red Yellow Bold Combo Menu A4.mp4" type="video/mp4">
+    </video>
+
+    <h3>Street Food Brand Advertisement</h3>
+
+    <p>
+      A cinematic promotional project using bold typography,
+      food branding psychology, and attention-focused visual editing
+      for modern social media marketing.
+    </p>
+
+  </div>
+
+  <div class="card">
+
+    <video controls>
+      <source src="Untitled design.mp4" type="video/mp4">
+    </video>
+
+    <h3>Creative Motion Design Showcase</h3>
+
+    <p>
+      A modern digital motion project demonstrating creative storytelling,
+      rhythm-based editing, visual branding, and audience engagement.
+    </p>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- REQUIREMENTS -->
+<section>
+
+<h2 class="section-title">Work Principles</h2>
+
+<div class="card">
+
+<ul>
+  <li>✔ Long-term thinking over shortcuts</li>
+  <li>✔ Respect for discipline, honesty, and execution</li>
+  <li>✔ Openness to learning and improvement</li>
+  <li>✔ Clear communication and strategic growth</li>
+</ul>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+
+<h2 class="section-title">Client Feedback</h2>
+
+<p class="section-desc">
+Feedback and appreciation from people who connected through consulting,
+creative guidance, branding ideas, and digital growth discussions.
+</p>
+
+<div class="grid">
+
+  <div class="card">
+    <p>
+      “Arish helped me structure my digital ideas properly.
+      His clarity and strategic thinking genuinely changed how I approach content.”
+    </p>
+
+    <br>
+
+    <h3>— Ayaan Mir</h3>
+    <p>Content Creator</p>
+  </div>
+
+  <div class="card">
+    <p>
+      “The guidance was practical instead of motivational fluff.
+      I got a clearer understanding of branding and online positioning.”
+    </p>
+
+    <br>
+
+    <h3>— Huzaifa Khan</h3>
+    <p>Small Business Learner</p>
+  </div>
+
+  <div class="card">
+    <p>
+      “Very creative mindset with strong observation skills.
+      The consultation sessions felt insightful and growth-focused.”
+    </p>
+
+    <br>
+
+    <h3>— Danish Rather</h3>
+    <p>Student & Freelancer</p>
+  </div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="contact-box">
+
+<form id="contact-form">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+
+  <input type="email" name="email" placeholder="Your Email" required>
+
+  <textarea name="message" placeholder="Tell me about your project or idea" required></textarea>
+
+  <button class="btn btn-primary" type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+“Silence is not emptiness, it is full of answers.”
+</p>
+
+</footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle('light');
+}
+</script>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+ emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
+document.getElementById("contact-form").addEventListener("submit",function(e){
+ e.preventDefault();
+
+ emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
+ .then(()=>{
+   alert("Message Sent Successfully");
+   this.reset();
+ })
+ .catch(()=>alert("Error Sending Message"));
+});
+</script>
+
+</body>
+</html>
