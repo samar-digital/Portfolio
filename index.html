@@ -567,13 +567,13 @@ document.querySelectorAll('.card,.stat-box').forEach(el=>{
 
 <script>
 (function(){
- emailjs.init("itoo.arish@gmail.com");
+ emailjs.init("itooarish@gmail.com");
 })();
 
 document.getElementById("contact-form").addEventListener("submit",function(e){
  e.preventDefault();
 
- emailjs.sendForm("itoo.arish@gmail.com",this)
+ emailjs.sendForm("itooarish@gmail.com","example@gmail.com",this)
  .then(()=>{
    alert("Message Sent Successfully");
    this.reset();
