@@ -43,6 +43,19 @@ body{
   line-height:1.8;
 }
 
+header::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(2,6,23,0.55),rgba(15,23,42,0.88));
+  backdrop-filter:blur(2px);
+}
+
+header .hero-box{
+  position:relative;
+  z-index:2;
+}
+
 header{
   min-height:100vh;
   display:flex;
@@ -52,7 +65,9 @@ header{
   padding:40px 20px;
   background:
   linear-gradient(rgba(2,6,23,0.75),rgba(15,23,42,0.9)),
-  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop') center/cover;
+  url('lone-figure-walking-through-frozen-landscape.jpg') center/cover;
+  position:relative;
+  overflow:hidden;
 }
 
 .hero-box{
@@ -567,18 +582,18 @@ document.querySelectorAll('.card,.stat-box').forEach(el=>{
 
 <script>
 (function(){
- emailjs.init("itooarish@gmail.com");
+ emailjs.init("YOUR_PUBLIC_KEY");
 })();
 
 document.getElementById("contact-form").addEventListener("submit",function(e){
  e.preventDefault();
 
- emailjs.sendForm("itooarish@gmail.com","example@gmail.com",this)
+ emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
  .then(()=>{
    alert("Message Sent Successfully");
    this.reset();
  })
- .catch(()=>alert("Message Sent Successfully"));
+ .catch(()=>alert("Error Sending Message"));
 });
 </script>
 
