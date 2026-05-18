@@ -20,13 +20,7 @@
   --border:rgba(255,255,255,0.08);
 }
 
-.light{
-  --bg:#f8fafc;
-  --text:#020617;
-  --muted:#475569;
-  --card:#ffffff;
-  --border:rgba(15,23,42,0.08);
-}
+
 
 *{
   margin:0;
@@ -40,7 +34,11 @@ html{
 
 body{
   font-family:'Poppins',sans-serif;
-  background:var(--bg);
+  background:
+  radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 30%),
+  radial-gradient(circle at bottom right, rgba(124,58,237,0.12), transparent 30%),
+  linear-gradient(135deg,#020617,#0f172a,#111827);
+  background-attachment:fixed;
   color:var(--text);
   line-height:1.8;
 }
@@ -114,19 +112,7 @@ h1{
   transform:translateY(-3px);
 }
 
-.toggle-btn{
-  position:fixed;
-  top:20px;
-  right:20px;
-  z-index:1000;
-  border:none;
-  background:var(--accent);
-  color:#020617;
-  padding:12px 16px;
-  border-radius:12px;
-  cursor:pointer;
-  font-weight:600;
-}
+
 
 section{
   max-width:1200px;
@@ -165,7 +151,7 @@ section{
 }
 
 .card{
-  background:var(--card);
+  background:rgba(17,24,39,0.78);
   border:1px solid var(--border);
   border-radius:24px;
   padding:25px;
@@ -211,7 +197,7 @@ ul li{
 }
 
 .stat-box{
-  background:var(--card);
+  background:rgba(17,24,39,0.78);
   border:1px solid var(--border);
   padding:25px;
   border-radius:20px;
@@ -224,7 +210,9 @@ ul li{
 }
 
 .contact-box{
-  background:linear-gradient(135deg,#0f172a,#111827);
+  background:
+linear-gradient(135deg,rgba(15,23,42,0.92),rgba(17,24,39,0.95));
+backdrop-filter:blur(16px);
   padding:40px;
   border-radius:30px;
   border:1px solid rgba(255,255,255,0.08);
@@ -274,7 +262,7 @@ section{
 
 <body>
 
-<button class="toggle-btn" onclick="toggleMode()">🌙 Mode</button>
+
 
 <!-- HERO -->
 <header>
@@ -555,23 +543,42 @@ creative guidance, branding ideas, and digital growth discussions.
 
 </footer>
 
+<script>
+// Smooth reveal animation
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.style.opacity='1';
+      entry.target.style.transform='translateY(0px)';
+    }
+  });
+});
+
+document.querySelectorAll('.card,.stat-box').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(30px)';
+  el.style.transition='all 0.7s ease';
+  observer.observe(el);
+});
+</script>
+
 <!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
 (function(){
- emailjs.init("itoo.arish54321@gmail.com");
+ emailjs.init("itooarish@gmail.com");
 })();
 
 document.getElementById("contact-form").addEventListener("submit",function(e){
  e.preventDefault();
 
- emailjs.sendForm("itoo.arish54321@gmail.com","itoo.arish54321@gmail.com",this)
+ emailjs.sendForm("itooarish@gmail.com","itooarish@gmail.com",this)
  .then(()=>{
    alert("Message Sent Successfully");
    this.reset();
  })
- .catch(()=>alert("Message Sent Successfully"));
+ .catch(()=>alert("Error Sending Message"));
 });
 </script>
 
